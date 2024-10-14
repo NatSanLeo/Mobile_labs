@@ -17,6 +17,17 @@ public class Inicio {
         driver = BR.OpenBrowser();
         localizadores = new Localizadores(driver);
 
+
+        localizadores.Escribir("standard_user", "//*[@id='user-name']");
+        localizadores.Escribir("secret_sauce", "//*[@id='password']");
+        localizadores.click("//*[@id='login-button']");
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @AfterEach
@@ -25,10 +36,8 @@ public class Inicio {
     }
 
     @Test
-    public void IngresarPagina() {
-        localizadores.Escribir("standard_user", "//*[@id='user-name']");
-        localizadores.Escribir("secret_sauce", "//*[@id='password']");
-        localizadores.click("//*[@id='login-button']");
+    public void SeleccionarProducto() {
+        localizadores.click("//*[@id='item_2_title_link']");
 
         try {
             Thread.sleep(10000);
