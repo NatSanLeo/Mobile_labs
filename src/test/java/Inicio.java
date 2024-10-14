@@ -1,5 +1,5 @@
 import Recursos.Navegador.Browser;
-import Recursos.Utilidades.Localizadores;
+import Recursos.Utilidades.Acciones;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,16 +8,14 @@ import org.openqa.selenium.WebDriver;
 
 public class Inicio {
     WebDriver driver;
-    Localizadores localizadores;
+    Acciones localizadores;
 
 
     @BeforeEach
     public void AbrirPagina() {
         Browser BR = new Browser(driver);
         driver = BR.OpenBrowser();
-        localizadores = new Localizadores(driver);
-
-
+        localizadores = new Acciones(driver);
         localizadores.Escribir("standard_user", "//*[@id='user-name']");
         localizadores.Escribir("secret_sauce", "//*[@id='password']");
         localizadores.click("//*[@id='login-button']");

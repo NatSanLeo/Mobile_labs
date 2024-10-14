@@ -3,11 +3,11 @@ package Recursos.Utilidades;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Localizadores {
+public class Acciones {
 
     WebDriver driver;
 
-    public Localizadores(WebDriver _driver) {
+    public Acciones(WebDriver _driver) {
         driver = _driver;
     }
 
