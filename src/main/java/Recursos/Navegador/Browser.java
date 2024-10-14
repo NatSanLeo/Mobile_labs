@@ -23,7 +23,7 @@ public class Browser {
             options.addArguments("--remote-allow-origins=*");
             driver = new ChromeDriver(options);
             driver.get("https://www.saucedemo.com/");
-            driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
+            driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
         } catch (Exception e) {
             System.out.println(e.getMessage() + "Revisa tu código");
