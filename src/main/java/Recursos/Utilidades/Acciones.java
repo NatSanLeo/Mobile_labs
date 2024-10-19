@@ -20,4 +20,11 @@ public class Acciones {
         driver.findElement(By.xpath(xpath)).sendKeys(text);
 
     }
+    public  void Esperar(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

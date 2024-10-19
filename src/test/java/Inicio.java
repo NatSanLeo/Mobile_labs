@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
+import static Recursos.Utilidades.Data.PASSWORD;
+import static Recursos.Utilidades.Data.USER_ADMIN;
+
 
 public class Inicio {
     WebDriver driver;
@@ -16,15 +19,12 @@ public class Inicio {
         Browser BR = new Browser(driver);
         driver = BR.OpenBrowser();
         localizadores = new Acciones(driver);
-        localizadores.Escribir("standard_user", "//*[@id='user-name']");
-        localizadores.Escribir("secret_sauce", "//*[@id='password']");
+        localizadores.Escribir(USER_ADMIN.toString(), "//*[@id='user-name']");
+        localizadores.Escribir(PASSWORD.toString(), "//*[@id='password']");
         localizadores.click("//*[@id='login-button']");
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        localizadores.Esperar();
+
 
     }
 
@@ -36,12 +36,18 @@ public class Inicio {
     @Test
     public void SeleccionarProducto() {
         localizadores.click("//*[@id='item_2_title_link']");
-
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        //localizadores.click("//*[@id='add-to-cart']");
+        localizadores.Esperar();
 
     }
+
+    @Test
+    public void AgregarCarrito() {
+        localizadores.click("//*[@id='add-to-cart-sauce-labs-onesie']");
+        localizadores.Esperar();
+
+
+    }
+
+
 }
