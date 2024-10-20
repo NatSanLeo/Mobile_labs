@@ -20,11 +20,16 @@ public class Acciones {
         driver.findElement(By.xpath(xpath)).sendKeys(text);
 
     }
-    public  void Esperar(){
+
+    public void Esperar() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setDriver(WebDriver _driver) {
+        this.driver = _driver;
     }
 }

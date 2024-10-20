@@ -9,11 +9,11 @@ import static Recursos.Utilidades.Data.PASSWORD;
 import static Recursos.Utilidades.Data.USER_ADMIN;
 
 
-public class Inicio extends Acciones{
+public class Inicio extends Acciones {
     WebDriver driver;
 
-    public Inicio(WebDriver _driver) {
-        super(_driver);
+    public Inicio() {
+        super(null);
     }
 
 
@@ -21,6 +21,7 @@ public class Inicio extends Acciones{
     public void abrirPagina() {
         Browser BR = new Browser(driver);
         driver = BR.OpenBrowser();
+        setDriver(driver);
         Escribir(USER_ADMIN.toString(), "//*[@id='user-name']");
         Escribir(PASSWORD.toString(), "//*[@id='password']");
         click("//*[@id='login-button']");
