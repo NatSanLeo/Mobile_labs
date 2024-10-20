@@ -9,42 +9,41 @@ import static Recursos.Utilidades.Data.PASSWORD;
 import static Recursos.Utilidades.Data.USER_ADMIN;
 
 
-public class Inicio {
+public class Inicio extends Acciones{
     WebDriver driver;
-    Acciones localizadores;
+
+    public Inicio(WebDriver _driver) {
+        super(_driver);
+    }
 
 
     @BeforeEach
-    public void AbrirPagina() {
+    public void abrirPagina() {
         Browser BR = new Browser(driver);
         driver = BR.OpenBrowser();
-        localizadores = new Acciones(driver);
-        localizadores.Escribir(USER_ADMIN.toString(), "//*[@id='user-name']");
-        localizadores.Escribir(PASSWORD.toString(), "//*[@id='password']");
-        localizadores.click("//*[@id='login-button']");
-
-        localizadores.Esperar();
-
+        Escribir(USER_ADMIN.toString(), "//*[@id='user-name']");
+        Escribir(PASSWORD.toString(), "//*[@id='password']");
+        click("//*[@id='login-button']");
+        Esperar();
 
     }
 
     @AfterEach
-    public void CloseBrowser() {
+    public void closeBrowser() {
         driver.close();
     }
 
     @Test
-    public void SeleccionarProducto() {
-        localizadores.click("//*[@id='item_2_title_link']");
-        //localizadores.click("//*[@id='add-to-cart']");
-        localizadores.Esperar();
+    public void seleccionarProducto() {
+        click("//*[@id='item_2_title_link']");
+        Esperar();
 
     }
 
     @Test
-    public void AgregarCarrito() {
-        localizadores.click("//*[@id='add-to-cart-sauce-labs-onesie']");
-        localizadores.Esperar();
+    public void agregarCarrito() {
+        click("//*[@id='add-to-cart-sauce-labs-onesie']");
+        Esperar();
 
 
     }
