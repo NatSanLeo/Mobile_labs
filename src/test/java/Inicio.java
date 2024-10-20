@@ -22,10 +22,10 @@ public class Inicio extends Acciones {
         Browser BR = new Browser(driver);
         driver = BR.OpenBrowser();
         setDriver(driver);
-        Escribir(USER_ADMIN.toString(), "//*[@id='user-name']");
-        Escribir(PASSWORD.toString(), "//*[@id='password']");
+        escribir(USER_ADMIN.toString(), "//*[@id='user-name']");
+        escribir(PASSWORD.toString(), "//*[@id='password']");
         click("//*[@id='login-button']");
-        Esperar();
+        esperar();
 
     }
 
@@ -37,14 +37,14 @@ public class Inicio extends Acciones {
     @Test
     public void seleccionarProducto() {
         click("//*[@id='item_2_title_link']");
-        Esperar();
+        esperar();
 
     }
 
     @Test
     public void agregarCarrito() {
         click("//*[@id='add-to-cart-sauce-labs-onesie']");
-        Esperar();
+        esperar();
 
 
     }

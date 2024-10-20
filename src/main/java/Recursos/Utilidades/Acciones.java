@@ -16,12 +16,12 @@ public class Acciones {
 
     }
 
-    public void Escribir(String text, String xpath) {
+    public void escribir(String text, String xpath) {
         driver.findElement(By.xpath(xpath)).sendKeys(text);
 
     }
 
-    public void Esperar() {
+    public void esperar() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
